@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="row">
+          <div class="col s5">
+            <form #empleadoForm="ngForm" (ngSubmit)="onSubmit(empleadoForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado._id" />
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="nombre" #name="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado.nombre" placeholder="Ingrese nombre completo" required />
+                  <label>
+                    Nombre :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="posicion" #name="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado.posicion" placeholder="Ej : Desarrollador Snr.">
+                  <label>Posición :</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="localidad" #name="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado.localidad" placeholder="Ingrese ciudad donde ejerce el oficio">
+                  <label>Localidad :</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="salario" #name="ngModel" [(ngModel)]="empleadoService.empleadoSeleccionado.salario" placeholder="Salario por año">
+                  <label>Salario :</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(empleadoForm)" >Reset</button>
+                  <button class="btn btn-custom right" type="submit" [disabled]="!empleadoForm.valid" >Submit</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="col s7">
+
+            <table class="responsive-table highlight" >
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Posición</th>
+                  <th>Localidad</th>
+				  <th>Salario</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tr *ngFor="let emp of empleadoService.empleados">
+                <td>{{emp.nombre}}</td>
+                <td>{{emp.posicion}}</td>
+                <td>{{emp.localidad}}</td>
+				<td>{{emp.salario}}</td>
+                <td>
+                  <!--Aqui, definiendo como class="material-icons" y poniendo dentro los textos "edit" y "delete",
+                      estamos importando los iconos de materialize, por lo que en nuestra aplicacion apareceran
+                      los iconos correspondientes (un lapiz para el boton editar, y una papelera para el boton
+                      eliminar)-->
+                  <a class="action-btn" (click)="onEdit(emp)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+                    <i class="material-icons">delete</i>
+                  </a>
+                  
+                </td>
+              </tr>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
