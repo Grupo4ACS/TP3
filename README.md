@@ -1,12 +1,14 @@
-""Instrucciones para correr la Aplicación""
+# TP3
 
-1. Instalar Angular: $ npm install -g @angular/cli
+## Instrucciones para correr la Aplicación
 
-2. Levantar el servidor de mongo $ mongod.exe --dbpath ~/TP3/CRUD/Proyect/data
+1. Instalar Angular: ``` $ npm install -g @angular/cli ```
 
-3. Levantar el backend $ cd ~/TP3/CRUD/Proyect/NodeJS $ node index.js
+2. Levantar el servidor de mongo ``` $ mongod.exe --dbpath ~/TP3/CRUD/Proyect/data ```
 
-4. Levantar el frontend cd ~/TP3/CRUD/Proyect/angularApp $ ng serve --open
+3. Levantar el backend ``` $ cd ~/TP3/CRUD/Proyect/NodeJS $ node index.js ```
+
+4. Levantar el frontend ``` cd ~/TP3/CRUD/Proyect/angularApp $ ng serve --open ```
 
 5. Desde el navegador entrar a localhost:4200 para visualizar la aplicación
 
