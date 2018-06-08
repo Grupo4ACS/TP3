@@ -8,7 +8,7 @@
 
 3. Levantar el backend ``` $ cd ~/TP3/CRUD/Proyect/NodeJS $ node index.js ```
 
-4. Levantar el frontend ``` cd ~/TP3/CRUD/Proyect/angularApp $ ng serve --open ```
+4. Levantar el frontend ``` $ cd ~/TP3/CRUD/Proyect/angularApp $ ng serve --open ```
 
 5. Desde el navegador entrar a localhost:4200 para visualizar la aplicación
 
