@@ -38,8 +38,10 @@
 
               <div class="row">
                 <div class="input-field col s12">
-                  <button class="btn btn-custom right" type="button" (click)="resetForm(empleadoForm)" >Reset</button>
-                  <button class="btn btn-custom right" type="submit" [disabled]="!empleadoForm.valid" >Submit</button>
+                  <!--
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(empleadoForm)" >Limpiar</button>
+                  -->
+                  <button class="btn btn-custom right" type="submit" [disabled]="!empleadoForm.valid" >Guardar</button>
                 </div>
               </div>
 
@@ -53,7 +55,7 @@
                   <th>Nombre</th>
                   <th>Posición</th>
                   <th>Localidad</th>
-				  <th>Salario</th>
+				          <th>Salario</th>
                   <th></th>
                 </tr>
               </thead>
@@ -61,7 +63,7 @@
                 <td>{{emp.nombre}}</td>
                 <td>{{emp.posicion}}</td>
                 <td>{{emp.localidad}}</td>
-				<td>{{emp.salario}}</td>
+				        <td>{{emp.salario}}</td>
                 <td>
                   <!--Aqui, definiendo como class="material-icons" y poniendo dentro los textos "edit" y "delete",
                       estamos importando los iconos de materialize, por lo que en nuestra aplicacion apareceran

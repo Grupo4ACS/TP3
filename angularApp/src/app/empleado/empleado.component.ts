@@ -41,6 +41,7 @@ export class EmpleadoComponent implements OnInit {
       salario: null
     }
   }
+  
 
   //En este metodo consumimos el post request que esta en el archivo empleadoController.js
   //Y llamamos a la funcion postEmpleado que esta en el archivo empleado.service.ts
@@ -53,17 +54,24 @@ export class EmpleadoComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.empleadoService.postEmpleado(form.value).subscribe((res) => {
-        this.resetForm(form);
+        //this.resetForm(form);
         this.refrescarListaEmpleados();
         M.toast({ html: 'Empleado guardado', classes: 'rounded' });
       });
     }
     else {
       this.empleadoService.putEmpleado(form.value).subscribe((res) => {
-        this.resetForm(form);
+        //this.resetForm(form);
         this.refrescarListaEmpleados();
         M.toast({ html: 'Empleado actualizado', classes: 'rounded' });
       });
+    }
+    this.empleadoService.empleadoSeleccionado = {
+      _id: "",
+      nombre: "",
+      posicion: "",
+      localidad: "",
+      salario: null
     }
   }
   
@@ -97,7 +105,7 @@ export class EmpleadoComponent implements OnInit {
     if (confirm('¿Seguro que querés borrar éste empleado?') == true) {
       this.empleadoService.borrarEmpleado(_id).subscribe((res) => {
         this.refrescarListaEmpleados();
-        this.resetForm(form);
+        form.reset();
         M.toast({ html: 'Borrado exitoso', classes: 'rounded' });
       });
     }
