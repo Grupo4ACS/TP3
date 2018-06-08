@@ -31,8 +31,8 @@ export class EmpleadoComponent implements OnInit {
   //Si el parametro form no es nulo (es decir, se seleccionó un formulario que esta siendo modificado), se ejecuta
   //la funcion form.reset() que lo resetea.
   resetForm(form? : NgForm) {
-    if (form)
-      form.reset();
+    //if (form)
+      //form.reset();
     this.empleadoService.empleadoSeleccionado = {
       _id: "",
       nombre: "",
