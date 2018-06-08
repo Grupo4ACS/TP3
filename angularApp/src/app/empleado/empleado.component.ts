@@ -50,28 +50,6 @@ export class EmpleadoComponent implements OnInit {
   //de que el id sera nulo, entonces se procedera con la operacion insert, caso contrario un update.
   //Para el update se tiene que consumir la funcion put del proyecto, para lo cual definimos la funcion putEmpleado()
   //en el archivo empleado.service.ts.
-
-  /*
-  onSubmit(form: NgForm) {
-    if (form.value._id == "") {
-      this.empleadoService.postEmpleado(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.refrescarListaEmpleados();
-        M.toast({ html: 'Empleado guardado', classes: 'rounded' });
-      });
-    }
-    
-    else {
-      this.empleadoService.putEmpleado(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.refrescarListaEmpleados();
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
-      });
-    }
-  }
-  */
-
-  
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.empleadoService.postEmpleado(form.value).subscribe((res) => {
@@ -107,16 +85,14 @@ export class EmpleadoComponent implements OnInit {
   }
 
   //El parametro emp se setea al empleadoSeleccionado del archivo empleado.service.ts
-  /*
-  onEdit(emp: Empleado) {
-    this.empleadoService.empleadoSeleccionado = emp;
-  }
-  */
-
   onEdit(emp: Empleado) {
     this.empleadoService.empleadoSeleccionado = emp;
   }
 
+
+  //La funcion borrarEmpleado retorna un observable, por lo que podemos suscribirnos, luego llamamos a una callback
+  //function, refrescamos la lista de empleados para visualizar el borrado, e imprimimos por pantalla el borrado
+  //exitoso.
   onDelete(_id: string, form: NgForm) {
     if (confirm('¿Seguro que querés borrar éste empleado?') == true) {
       this.empleadoService.borrarEmpleado(_id).subscribe((res) => {

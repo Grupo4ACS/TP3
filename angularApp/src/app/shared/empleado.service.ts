@@ -35,16 +35,13 @@ export class EmpleadoService {
 
   //Para consumir el put, en http llamamos a la funcion put() pasandole de parametro http://localhost:3000/{idDelEmpleado}.
   //Y como segundo parametro le pasamos emp, que es el objeto Empleado que queremos updatear.
-  /*
-  putEmpleado(emp: Empleado) {
-    return this.http.put(this.baseURL + `/${emp._id}`, emp);
-  }
-  */
-
   putEmpleado(emp: Empleado) {
     return this.http.put(this.baseURL + `/${emp._id}`, emp);
   }
 
+  //Para consumir el delete, en http llamamos a la funcion delete(), pasandole de parametro
+  //http://localhost:3000/{idDelEmpleado}, tal como lo expresa la funcion router.delete() definida en
+  //el archivo empleadoController.js 
   borrarEmpleado(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }

@@ -13,6 +13,6 @@ app.use(bodyParser.json());
 //Con esta funcion le decimos que no bloquee los request que vienen de este dominio (localhost:4200)
 app.use(cors({ origin: 'http://localhost:4200' }));
 
-app.listen(3000, () => console.log('Servidor arrancado en el puerto 3000.. anda al navegador y entra a http://localhost:3000'));
+app.listen(3000, () => console.log('Servidor arrancado en el puerto 3000.. anda al navegador y entra a http://localhost:3000/empleados'));
 
 app.use('/empleados', empleadoController);
